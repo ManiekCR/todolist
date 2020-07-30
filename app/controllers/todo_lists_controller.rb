@@ -4,17 +4,19 @@ class TodoListsController < ApplicationController
   # GET /todo_lists
   # GET /todo_lists.json
   def index
-    @todo_lists = TodoList.all
+    @todo_lists = policy_scope(TodoList).order(created_at: :desc)
   end
 
   # GET /todo_lists/1
   # GET /todo_lists/1.json
   def show
+    authorize @todo_list
   end
 
   # GET /todo_lists/new
   def new
     @todo_list = TodoList.new
+    authorize @todo_list
   end
 
   # GET /todo_lists/1/edit
@@ -25,7 +27,7 @@ class TodoListsController < ApplicationController
   # POST /todo_lists.json
   def create
     @todo_list = TodoList.new(todo_list_params)
-
+    authorize @todo_list
     respond_to do |format|
       if @todo_list.save
         format.html { redirect_to @todo_list, notice: 'Todo list was successfully created.' }
@@ -65,6 +67,7 @@ class TodoListsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_todo_list
       @todo_list = TodoList.find(params[:id])
+      authorize @todo_list
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
