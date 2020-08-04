@@ -5,19 +5,19 @@ class TodoListPolicy < ApplicationPolicy
     end
   end
 
-  def show?
-    return true
+  def create?
+    true
   end
 
-  def create?
-    return true
+  def show?
+    true
   end
 
   def update?
-    record.user == user
+    user == record.user
   end
 
   def destroy?
-    record.user == user
+    user == record.user
   end
 end

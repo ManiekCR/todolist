@@ -4,6 +4,7 @@ class TodoItemsController < ApplicationController
 
   def create
     @todo_item = @todo_list.todo_items.create(todo_item_params)
+    authorize @todo_item
     redirect_to @todo_list
   end
 
@@ -29,6 +30,7 @@ class TodoItemsController < ApplicationController
 
   def set_todo_item
     @todo_item = @todo_list.todo_items.find(params[:id])
+    authorize @todo_item
   end
 
   def todo_item_params

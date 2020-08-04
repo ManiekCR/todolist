@@ -27,6 +27,7 @@ class TodoListsController < ApplicationController
   # POST /todo_lists.json
   def create
     @todo_list = TodoList.new(todo_list_params)
+    @todo_list.user = current_user
     authorize @todo_list
     respond_to do |format|
       if @todo_list.save
