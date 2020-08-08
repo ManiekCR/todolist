@@ -10,11 +10,8 @@ html {
 
 body {
   height: 100%;
-  background: -webkit-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-  background:    -moz-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-  background:     -ms-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-  background:      -o-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-  background:         linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+  background: rgb(0,106,78);
+  background: linear-gradient(90deg, rgba(0,106,78,1) 0%, rgba(10,187,141,1) 64%);
   font-family: 'Roboto', sans-serif;
 }
 
@@ -201,3 +198,33 @@ input[type="submit"] {
   }
 }
 ::-webkit-input-placeholder { color: $dark; }
+
+
+.flash {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  margin: 8px;
+}
+
+.flash-success {
+  border: 2px solid #1EDD88;
+}
+
+.flash-warning {
+  border: 2px solid #FFC65A;
+}
+
+.flash-danger {
+  border: 2px solid #FD1015;
+}
+
+.alert {
+  position: absolute !important;
+  bottom: 0;
+  right: 14px;
+}
